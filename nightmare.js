@@ -14,8 +14,8 @@ nightmare
 
         // pass data from the nightmare browser back to this express app
         var bodyHTML =  document.querySelector('body').innerHTML;
-        bodyHTML = bodyHTML.split('</script>')[1].toString();
-        bodyHTML.replace('<sp&#97;n>', '');
+        bodyHTML = bodyHTML.split('</script>')[1].toString().replace('<sp&#97;n>', '')
+        bodyHTML = bodyHTML.replace('</sp&#97;n>', '');
         return bodyHTML;
 
 
