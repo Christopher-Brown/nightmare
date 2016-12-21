@@ -14,7 +14,7 @@ nightmare
 
         // pass data from the nightmare browser back to this express app
         var bodyHTML =  document.querySelector('body').innerHTML;
-        bodyHTML = bodyHTML.split('</script>')[1].toString().replace(/<sp&#97;n>|<\/sp&#97;n>|<\/span>|<\/main>|<\/div>/g, '');
+        bodyHTML = bodyHTML.split('</script>')[1].toString().replace(/<sp&#97;n>|<\/sp&#97;n>|<\/span>|<\/main>|<\/div>/g, '').trim();
         return bodyHTML;
 
 
@@ -25,7 +25,7 @@ nightmare
     // the result passed into this function is the value we returned from evaluate
     .then(function (result) {
         //fs.writeFileSync('results.txt', result);
-        console.log(result)
+        console.log(result, '\n\nSCREW YOU ASSHOLES. YOU JUST BEEN SCRAPED.');
     })
     .catch(function (error) {
         console.error('Search failed:', error);
