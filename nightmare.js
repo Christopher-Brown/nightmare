@@ -5,16 +5,14 @@ var Nightmare = require('nightmare');
 var nightmare = Nightmare({ show: true });
 
 nightmare
-    .goto('http://yahoo.com')
-    .type('form[action*="/search"] [name=p]', 'github nightmare')
-    .click('form[action*="/search"] [type=submit]')
-    .wait('#main')
+    .goto('http://159.203.244.183:3000/')
+    .wait('p')
 
     // evaluate code IN THE NIGHTMARE BROWSER
     .evaluate(function () {
 
         // pass data from the nightmare browser back to this express app
-        return document.querySelector('#main .searchCenterMiddle li a').href
+        return document.querySelector('p').innerHTML;
     })
 
     // close the browser window
